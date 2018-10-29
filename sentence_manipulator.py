@@ -41,7 +41,7 @@ class SentenceManipulator:
         """
         This function removes the punctuation marks.
         """
-        for punctuation in ",?!\\;\"./:'&~{[(-|`_^@)]=}+*<>²%$£€µ§°":
+        for punctuation in ",?!\\;\"./:'&~{[(-|`_^@)]=}+*<>²%$£€µ§°¤":
             self.question = self.question.replace(punctuation, "")
             self.question = self.question.strip()
         return self.question
