@@ -2,7 +2,7 @@
 # -*- coding: Utf-8 -*
 
 import pytest
-from fr_stop_words import stop_words
+import fr_stop_words
 import sentence_manipulator as manipulator
 
 class TestSentenceManipulator:
@@ -37,5 +37,4 @@ class TestSentenceManipulator:
 
     def test_no_stop_words(self):
         self.manip.question = ['chaine', 'chaine']
-        for word in self.manip.question :
-            assert self.manip.no_stop_words() == ['chaine', 'chaine']
+        assert self.manip.no_stop_words() == ['chaine', 'chaine']

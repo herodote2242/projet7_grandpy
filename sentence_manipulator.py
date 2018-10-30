@@ -53,10 +53,13 @@ class SentenceManipulator:
         self.question = self.question.split()
         return self.question
 
-    def no_stop_words(self):
+    def no_stop_words(self, question=None):
         """
         remove the words if they are stopwords
         """
         for stopword in fr_stop_words.list_of_stop_words:
-            question = question.remove(stopword)
+            try:
+                self.question = self.question.remove(stopword)
+            except:
+                pass
         return self.question
