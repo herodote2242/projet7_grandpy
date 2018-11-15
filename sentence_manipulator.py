@@ -86,7 +86,8 @@ class SentenceManipulator:
         self.suppress_punctuation()
         self.cut_question()
         self.suppress_stop_words()
-        return " ".join(self.question)
+        result = " ".join(self.question)
+        return result
 
 
 def main():
