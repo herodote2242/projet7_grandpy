@@ -4,7 +4,7 @@
 import os
 import googlemaps
 
-print(os.environ.get("GOOGLE_KEY"))
+
 class GoogleClient:
     """
     The module sentence_manipulator.py returns a string of key words.
@@ -22,9 +22,12 @@ class GoogleClient:
         and send it to the Google maps' API.
         """
         place_to_find = self.gmaps.geocode(address)
-        # insérer une réduction des infos pour avoir que adresse et coord gps
-        # avoir un dictionnaire plus simple
-        return place_to_find
+        # To find the exact address of the location :
+        exact_address = place_to_find[0]['formatted_address']
+        # To find the gps coordinates :
+        latitude = place_to_find[0]['geometry']['location']['lat']
+        longitude = place_to_find[0]['geometry']['location']['lng']
+        return exact_address, latitude, longitude
 
 
 def main():

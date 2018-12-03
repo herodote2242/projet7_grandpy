@@ -9,6 +9,10 @@ verify_ssl = true
 pymediawiki = "*"
 googlemaps = "*"
 os = "*"
+pytest = "*"
+flask = "*"
+python-dotenv = "*"
+flask-wtf = "*"
 
 [requires]
 python_version = "3.7"

@@ -94,8 +94,8 @@ def main():
     """
     Launches the module.
     """
-    main = SentenceManipulator()
-    question = main.clean_sentence()
+    manipulator = SentenceManipulator()
+    question = manipulator.clean_sentence()
     return question
 
 

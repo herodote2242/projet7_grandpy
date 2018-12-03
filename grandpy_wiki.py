@@ -2,6 +2,7 @@
 # -*- coding: Utf-8 -*
 
 from mediawiki import MediaWiki
+import random
 
 
 class WikiClient:
@@ -13,20 +14,32 @@ class WikiClient:
     to be told by the good old gramps'.
     """
 
-    def __init__(self):
+    def __init__(self, lang='fr'):
         self.geodata = None
-        self.wikipedia = MediaWiki()
+        self.wikipedia = MediaWiki(lang=lang)
 
     def get_article_from_geodata(self, geodata):
         """
         This function gets the result of the module grandpy_map.py
         and send it to the Wikipedia's API.
         """
-        self.geodata = geodata
-        # récupérer uniquement lat et long pour les passer à geosearch pour retourner une liste de titres
-        titles = self.wikipedia.geosearch(self.geodata)
-        # choisir un titre avec randomchoice et le passer à wikipedia.page, récuperer le résumé et le lien vers la page wiki
-        return titles
+        formatted_address, latitude, longitude = geodata
+        """
+        geosearch(latitude='x.x', longitude='x.x') returns a list of
+        different places/monuments within the radius (in meters).
+        """
+        titles = self.wikipedia.geosearch(
+            latitude=latitude, longitude=longitude, radius=5000)
+        # Select just one of the different results of the geosearch function :
+        if titles != []:
+            title = random.sample(titles, 1)
+            title = title.pop()
+            construction_to_describe = self.wikipedia.page(title)
+            # In order to return the address of the wikipedia's article.
+            url_address = title.url
+            # The summarize function returns x first sentences of the summary.
+            summary = construction_to_describe.summarize(sentences=4)
+            return summary, url_address
 
 
 def main():
@@ -34,9 +47,8 @@ def main():
     Executes the module.
     """
     wiki = WikiClient()
-    background = main.return_background_from_address()
-    return background
-    print(background)
+    article = wiki.get_article_from_geodata()
+    return article
 
 
 if __name__ == "__main__":
