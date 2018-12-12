@@ -2,7 +2,7 @@
 
 {% block content %}
 	<h1>Bonjour, petit garnement !</h1>
-    <form action="" method="post" novalidate>
+    <form action="/question" method="post" novalidate>
         {{ form.hidden_tag() }}
         <p>
             {{ form.gp_question.label }}<br>

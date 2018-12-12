@@ -2,7 +2,7 @@
 # -*- coding: Utf-8 -*
 
 import pytest
-import sentence_manipulator as manipulator
+import grandpy.sentence_manipulator as manipulator
 
 
 class TestSentenceManipulator:

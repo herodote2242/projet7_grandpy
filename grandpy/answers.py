@@ -2,7 +2,8 @@
 # -*- coding: Utf-8 -*
 
 
-WELCOME_PHRASE = ["Ha ! Mon petit, je suis content de te voir !",
+WELCOME_PHRASE = [
+    "Ha ! Mon petit, je suis content de te voir !",
     "Hou là là que ça fait longtemps que je ne t'ai vu !",
     "Hé ! Et comment vas-tu, petite canaille ?",
     "Ho peuchère, te revoilà !",
@@ -24,7 +25,8 @@ WELCOME_PHRASE = ["Ha ! Mon petit, je suis content de te voir !",
     "Je veux bien voir ce que je peux faire pour toi. Si tu es sage."
 ]
 
-POSITIVE_ANSWER = ["Ho, je vois très bien de quoi tu parles. Sais tu que...",
+POSITIVE_ANSWER = [
+    "Ho, je vois très bien de quoi tu parles. Sais tu que...",
     "J'ai habité juste à côté ! Dans le temps, ...",
     "Laisse moi te dire qu'à l'époque, c'était autre chose : ...",
     "Comme j'ai un peu de temps, je vais t'en toucher quelques mots...",
@@ -46,7 +48,8 @@ POSITIVE_ANSWER = ["Ho, je vois très bien de quoi tu parles. Sais tu que...",
     "Je crois que je me rappelle comment ça s'est construit. Au départ, ..."
 ]
 
-NEGATIVE_ANSWER = ["Décidément, je ne vois pas de quoi tu parles...",
+NEGATIVE_ANSWER = [
+    "Décidément, je ne vois pas de quoi tu parles...",
     "Je crois que j'ai un trou de mémoire. Redis-moi, pour voir ?",
     "Heiin ? Tu as dis quelque chose ? J'ai rien entendu.",
     "Ho, dis ! Tu me prends pour une encyclopédie ? Je ne connais pas.",
@@ -66,4 +69,4 @@ NEGATIVE_ANSWER = ["Décidément, je ne vois pas de quoi tu parles...",
     "Sacripan, va ! Tu me fais une farce. Ca n'existe pas.",
     "Désolé mon petit, je suis hors forfait. Rappelle-moi sur mon fixe !",
     "C'est pas possible, une mémoire pareille. Pose une autre question.",
-    ]
+]

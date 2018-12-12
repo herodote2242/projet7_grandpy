@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: Utf-8 -*
 
-import grandpy_map
+import grandpy.maps
 
 
 class TestGoogleClient:
@@ -29,9 +29,9 @@ class TestGoogleClient:
             return geocode_result
 
         monkeypatch.setattr(
-            "grandpy_map.googlemaps.Client.__init__", mock_init)
+            "grandpy.maps.googlemaps.Client.__init__", mock_init)
         monkeypatch.setattr(
-            "grandpy_map.googlemaps.Client.geocode", mock_geocode)
-        client = grandpy_map.GoogleClient()
+            "grandpy.maps.googlemaps.Client.geocode", mock_geocode)
+        client = grandpy.maps.GoogleClient()
         assert client.get_address_from_keywords(
             'Lyon Basilique de Fourvière') == result

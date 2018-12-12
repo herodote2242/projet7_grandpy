@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: Utf-8 -*
 
-import fr_stop_words
+import grandpy.fr_stop_words
 
 
 class SentenceManipulator:
@@ -71,7 +71,7 @@ class SentenceManipulator:
             self.question = question
         words = []
         for word in self.question:
-            if word not in set(fr_stop_words.list_of_stop_words):
+            if word not in set(grandpy.fr_stop_words.list_of_stop_words):
                 words.append(word)
         self.question = words
         return words

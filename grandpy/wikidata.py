@@ -36,7 +36,7 @@ class WikiClient:
             title = title.pop()
             construction_to_describe = self.wikipedia.page(title)
             # In order to return the address of the wikipedia's article.
-            url_address = title.url
+            url_address = construction_to_describe.url
             # The summarize function returns x first sentences of the summary.
             summary = construction_to_describe.summarize(sentences=4)
             return summary, url_address

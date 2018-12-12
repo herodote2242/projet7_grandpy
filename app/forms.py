@@ -7,6 +7,6 @@ from wtforms.validators import DataRequired
 
 
 class QuestionForm(FlaskForm):
-    gp_question = StringField('Posez une question à Grandpy !',
+    gp_question = StringField('Posez votre question à Grandpy :',
                               validators=[DataRequired()])
-    submit = SubmitField('Demander')
+    submit = SubmitField('Interroger !')

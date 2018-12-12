@@ -8,15 +8,15 @@
     </head>
     <body>
         <div>Menu:
-          <a href="{{ url_for('question') }}">Question</a>
-          <a href="{{ url_for('answer') }}">Answer</a>
+          <a href="{{ url_for('ask_question') }}">Question</a>
+          <a href="{{ url_for('get_answer') }}">Answer</a>
         </div>
         <hr>
         {% with messages = get_flashed_messages() %}
         {% if messages %}
         <ul>
           {% for message in messages %}
-            <li>{% message %}</li>
+            <li>{{ message }}</li>
             {% endfor %}
         </ul>
         {% endif %}
