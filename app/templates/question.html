@@ -1,17 +1,32 @@
 {% extends "base.html" %}
 
-{% block content %}
-	<h1>Bonjour, petit garnement !</h1>
-    <form action="/question" method="post" novalidate>
+{% block header %}
+<header class="introduction">
+    <h1><img src="../pictures/old-man.png" alt="logo de Grandpy" title="icône de Webalys, sur iconfounder.com"/>Le site de Grandpy !</h1>
+    Bienvenue sur mon site ! Je suis Grandpy, le papy encyclopédie ! </br>
+    Indiquez-moi un lieu, et je vous raconterai son histoire ou celle d'un monument proche...
+</header>
+{% endblock %}
+
+{% block main %}
+<main>
+    <div id="accroche">Ici la phrase d'accroche de grandpy.</div>     
+    <form id="formulaire">
         {{ form.hidden_tag() }}
-        <p>
-            {{ form.gp_question.label }}<br>
-            {{ form.gp_question(size=100) }}<br>
-            {% for error in form.gp_question.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>
-            {{ form.submit() }}
-        </p>
+        {{ form.gp_question(size=150, placeholder="Je rédige ici ma question pour Grandpy...") }}
+        {{ form.submit }}
+        {{ form.reset }}
+    </form>
+    
+</main>
+{% endblock %}
+
+{% block footer %}
+<footer>
+    Projet 7 du parcours Développeur d'Application Python d'Openclassrooms. cf : <a href="https://openclassrooms.com/fr/paths" title="liste des parcours OC">openclassrooms.com/fr/paths</a>
+</br>
+    Mon profil Github : <a href="https://github.com/herodote2242" title="Mon profil Github herodote2242">Lien github</a>
+</br>
+    Mon profil LinkedIn : <a href="https://www.linkedin.com/in/matthias-gil-389bb7150/" title="Mon profil LinkedIn">Lien LinkedIn</a>
+</footer>
 {% endblock %}

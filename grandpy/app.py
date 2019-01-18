@@ -24,7 +24,8 @@ class GrandpyApplication:
         wiki = grandpy.wikidata.WikiClient()
         self.keywords = manipulator.clean_sentence(self.question)
         self.coordinates = google.get_address_from_keywords(self.keywords)
-        self.summary = wiki.get_article_from_geodata(self.coordinates)
+        self.summary, self.url = wiki.get_article_from_geodata(
+            self.coordinates)
 
     def get_summary(self):
         """
@@ -66,10 +67,12 @@ class GrandpyApplication:
         This function associates the three previous returns into a single
         dictionnary, which will be used by the JavaScript part of the app.
         """
+        self.get_grandpy_speech()
         total_answer = {
             'speech': self.speech,
             'summary': self.summary,
-            'coords': self.coordinates}
+            'coords': self.coordinates,
+            'url': self.url}
         return total_answer
 
 

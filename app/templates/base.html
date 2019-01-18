@@ -1,26 +1,23 @@
-<html>
+<html lang="fr">
     <head>
       {% if title %}
       <title>{{ title }}</title>
       {% else %}
       <title>Bienvenue sur le site de Grandpy !</title>
       {% endif %}
+      <meta charset="utf-8">
+      <link rel="stylesheet" href="../css/gdpy_website.css" />
     </head>
     <body>
-        <div>Menu:
-          <a href="{{ url_for('ask_question') }}">Question</a>
-          <a href="{{ url_for('get_answer') }}">Answer</a>
-        </div>
-        <hr>
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        <ul>
-          {% for message in messages %}
-            <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-        {% endif %}
-        {% endwith %}
-        {% block content %}{% endblock %}
+        
+        {% block header %}
+        {% endblock %}
+
+        {% block main %}
+        {% endblock %}
+
+        {% block footer %}
+        {% endblock %}        
+        
     </body>
 </html>

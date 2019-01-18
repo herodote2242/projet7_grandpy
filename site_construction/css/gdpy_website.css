@@ -1,0 +1,63 @@
+p, header, #accroche
+{
+    text-align: center;
+    color: white;
+    background-color: black;
+    opacity: 0.6;
+    width: 60%;
+}
+
+body
+{
+    background: url("../pictures/two_old_men.jpg") scroll no-repeat top;
+    background-size: cover;
+}
+
+footer
+{
+    text-align: left;
+    color: black;
+    width: 50%;
+    min-width: 400px;
+    font-size: 120%;
+    background-color: white;
+    opacity: 0.6;
+}
+
+#formulaire
+{
+    text-align: center;
+    opacity: 0.7;
+}
+
+h1, p, body, footer, #formulaire, #accroche
+{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+h1
+{
+    text-align: left;
+    color: white;
+    background-color: black;
+    opacity: 0.6;
+    width: 35%;
+}
+
+header
+{
+    font-size: 120%;
+    margin: auto;
+}
+
+#accroche, #formulaire
+{
+    font-size: 130%;
+}
