@@ -2,6 +2,8 @@
 # -*- coding: Utf-8 -*
 
 import os
+import html
+
 import googlemaps
 
 
@@ -27,7 +29,8 @@ class GoogleClient:
         # To find the gps coordinates :
         latitude = place_to_find[0]['geometry']['location']['lat']
         longitude = place_to_find[0]['geometry']['location']['lng']
-        return exact_address, latitude, longitude
+        # To avoid XSS attacks, using html.escape() function :
+        return html.escape(exact_address), latitude, longitude
 
 
 def main():

@@ -1,30 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: Utf-8 -*
 
-
-WELCOME_PHRASE = [
-    "Ha ! Mon petit, je suis content de te voir !",
-    "Hou là là que ça fait longtemps que je ne t'ai vu !",
-    "Hé ! Et comment vas-tu, petite canaille ?",
-    "Ho peuchère, te revoilà !",
-    "Tiens, tu viens voir ton papy adoré ?",
-    "Alors mon enfant, que veux-tu savoir ?",
-    "Dis peutiot, t'as pas vu mes lunettes ?",
-    "Mon p'tit p'tit fillot, que tu as grandi...",
-    "Ha ! Que me vaut ta visite, mon enfant ?",
-    "Bonjour chenapan, que puis-je pour toi ?",
-    "Oui ma coccinelle, je te vois, je te vois.",
-    "Alors canaille, raconte moi comment ça va à l'école ? Déjà fini ?",
-    "Et tu n'as pas oublié ton goûter, cette fois, j'espère...",
-    "Allons allons, qu'est-ce que tu as pu manger pour grandir autant..",
-    "Vaz-y, demande à papy ce que tu veux.",
-    "Bonjour mon petit garnement !",
-    "C'est ta maman qui t'envoie prendre de mes nouvelles ?",
-    "Rentre dans le salon, grande bécasse, et installe toi !",
-    "Comment se porte ma descendance ? Qu'as-tu à raconter ?",
-    "Je veux bien voir ce que je peux faire pour toi. Si tu es sage."
-]
-
 POSITIVE_ANSWER = [
     "Ho, je vois très bien de quoi tu parles. Sais tu que...",
     "J'ai habité juste à côté ! Dans le temps, ...",

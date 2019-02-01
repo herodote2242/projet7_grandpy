@@ -2,6 +2,8 @@
 # -*- coding: Utf-8 -*
 
 import random
+import html
+
 import grandpy.sentence_manipulator
 import grandpy.maps
 import grandpy.wikidata
@@ -44,22 +46,16 @@ class GrandpyApplication:
     def get_grandpy_speech(self):
         """
         This function creates the structure of the grandpy's speech. It
-        randomly chooses (from pre-existing lists) a catch-phrase, a positive
+        randomly chooses (from pre-existing lists) a positive
         answer if a summary is found, or a negative answer if not.
-        """
-        # Grandpy says a catch-phrase, to simulate the arrival of the user.
-        welcome = random.choice(grandpy.answers.WELCOME_PHRASE, 1)
-        """
         If the modules find an answer, Grandpy gives a positive answer,
         followed by the summary of the wikipedia's article.
         """
         if self.summary:
-            self.speech = welcome, random.choice(
-                grandpy.answers.POSITIVE_ANSWER, 1)
+            self.speech = random.choice(grandpy.answers.POSITIVE_ANSWER, 1)
         # If there is no available answer, Grandpy gives a negative answer.
         else:
-            self.speech = welcome, random.choice(
-                grandpy.answers.NEGATIVE_ANSWER, 1)
+            self.speech = random.choice(grandpy.answers.NEGATIVE_ANSWER, 1)
         return self.speech
 
     def get_answer(self):
@@ -70,7 +66,9 @@ class GrandpyApplication:
         self.get_grandpy_speech()
         total_answer = {
             'speech': self.speech,
-            'summary': self.summary,
+            # To avoid XSS (cross-site scripting) attacks,
+            # using html.escape() function :
+            'summary': html.escape(self.summary),
             'coords': self.coordinates,
             'url': self.url}
         return total_answer

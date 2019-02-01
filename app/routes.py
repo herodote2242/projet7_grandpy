@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: Utf-8 -*
 
+import os
+
 from flask import render_template, jsonify, request
 from grandpy.app import GrandpyApplication
 from app.forms import QuestionForm
@@ -10,7 +12,9 @@ from app import app
 @app.route('/', methods=['GET'])
 def ask_question():
     form = QuestionForm()
-    return render_template('question.html', title='Site de Grandpy', form=form)
+    key = os.getenv("GOOGLE")
+    return render_template('question.html', title='Site de Grandpy',
+        form=form, key=key)
 
 
 @app.route('/answer', methods=['POST'])

@@ -1,4 +1,4 @@
-p, header, #accroche
+header, #catching_phrase, #answers
 {
     text-align: center;
     color: white;
@@ -24,13 +24,13 @@ footer
     opacity: 0.6;
 }
 
-#formulaire
+#form
 {
     text-align: center;
     opacity: 0.7;
 }
 
-h1, p, body, footer, #formulaire, #accroche
+h1, p, body, footer, #form, #answers
 {
     padding-top: 10px;
     padding-bottom: 10px;
@@ -51,13 +51,8 @@ h1
     width: 35%;
 }
 
-header
-{
-    font-size: 120%;
-    margin: auto;
-}
-
-#accroche, #formulaire
+header, #catching_phrase, #form
 {
     font-size: 130%;
+    margin: auto;
 }
