@@ -10,19 +10,27 @@
 
 {% block main %}
 <main>
-    <div id="accroche">Ici la phrase d'accroche de grandpy.</div>     
-    <form id="formulaire">
+    <!-- A little welcoming sentence to greet the visitor. -->
+    <div id="catching_phrase">Hé peuchère, mon petit ! Que veux-tu savoir aujourd'hui ?</div>
+    <form id="form" method="POST" action="">
+        <!-- The user asks his question into this form. He can validate his input ("Et zou !" = submit) or erase it all("Oups..." = reset). -->
+        <input type="text" name="question_asked" id="question_asked" maxlength="120" size="120"></input>
+        <input type="submit" value="Et zou !"></input>
+        <input type="reset" value="Oups..."></input>
         {{ form.hidden_tag() }}
         {{ form.gp_question(size=150, placeholder="Je rédige ici ma question pour Grandpy...") }}
         {{ form.submit }}
         {{ form.reset }}
     </form>
-    
+    <div id="answers">
+    <!-- This div is where the different questions/answers will be added, and are lost when the page is refreshed or closed. -->
+    </div>     
 </main>
 {% endblock %}
 
 {% block footer %}
 <footer>
+    <!-- The different links pointing at my course, GitHub and LinkedIn profiles. -->
     Projet 7 du parcours Développeur d'Application Python d'Openclassrooms. cf : <a href="https://openclassrooms.com/fr/paths" title="liste des parcours OC">openclassrooms.com/fr/paths</a>
 </br>
     Mon profil Github : <a href="https://github.com/herodote2242" title="Mon profil Github herodote2242">Lien github</a>
