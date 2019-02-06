@@ -38,13 +38,12 @@ formElt.addEventListener("submit", function() {
             return speechElt;
         }
 
-        // map à mettre dans une fonction createMap et mettre return à la fin.
         /* This function create a map and its marker, according to the GPS coordinates
         of the location found by the program.*/
         function createMap() {
             var mapElt = document.createElement("divmap");
             var myLatLng = {lat: coordinates[0], lng: coordinates[1]};
-            var map = new google.maps.Map(mapElt {
+            var map = new google.maps.Map(mapElt, {
                 zoom: 4,
                 center: myLatLng
             });
@@ -55,7 +54,7 @@ formElt.addEventListener("submit", function() {
             return map, marker;
         }
 
-        // summary
+        // This function returns the summary found by Grandpy on the wikipedia' website.
         function returnSummary() {
             var summaryElt = document.createElement("p");
             var summaryTextElt = document.createTextNode(summary);
@@ -63,15 +62,20 @@ formElt.addEventListener("submit", function() {
             return summaryElt;
         }
 
-        // answer
-        // inclure tous les éléments précédents dans 1 élément answer
-        // ajouter answer à answers
-
-        // créer lien + balise "a" avec title "en savoir plus" pour aller sur le site de la page wiki
-        
-
-
-        },
+        // This function returns all the previous elements as a global answer.
+        function returnGlobalAnswer() {
+            returnQuestion();
+            returnSpeech();
+            returnSummary();
+            createMap();
+            var knowMoreElt = document.createElement("p");
+            var knowMoreTextElement = document.createTextNode();
+            knowMoreElt.appendChild(knowMoreTextElement);
+            var linkWikiElt = document.createElement("a");
+            linkWikiElt.href = url;
+            linkWikiElt.appendChild(document.createTextNode("En savoir plus."));
+        }
+    },
     true
     );
 }); 

@@ -12,7 +12,7 @@ from app import app
 @app.route('/', methods=['GET'])
 def ask_question():
     form = QuestionForm()
-    key = os.getenv("GOOGLE")
+    key = os.getenv("GOOGLE_KEY")
     return render_template('question.html', title='Site de Grandpy',
         form=form, key=key)
 

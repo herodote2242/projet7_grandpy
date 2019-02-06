@@ -2,7 +2,7 @@
 
 {% block header %}
 <header class="introduction">
-    <h1><img src="../pictures/old-man.png" alt="logo de Grandpy" title="icône de Webalys, sur iconfounder.com"/>Le site de Grandpy !</h1>
+    <h1><img src="{{ url_for('static', filename='pictures/old-man.png') }}" alt="logo de Grandpy" title="icône de Webalys, sur iconfounder.com"/>Le site de Grandpy !</h1>
     Bienvenue sur mon site ! Je suis Grandpy, le papy encyclopédie ! </br>
     Indiquez-moi un lieu, et je vous raconterai son histoire ou celle d'un monument proche...
 </header>
@@ -14,13 +14,9 @@
     <div id="catching_phrase">Hé peuchère, mon petit ! Que veux-tu savoir aujourd'hui ?</div>
     <form id="form" method="POST" action="">
         <!-- The user asks his question into this form. He can validate his input ("Et zou !" = submit) or erase it all("Oups..." = reset). -->
-        <input type="text" name="question_asked" id="question_asked" maxlength="120" size="120"></input>
-        <input type="submit" value="Et zou !"></input>
-        <input type="reset" value="Oups..."></input>
         {{ form.hidden_tag() }}
         {{ form.gp_question(size=150, placeholder="Je rédige ici ma question pour Grandpy...") }}
         {{ form.submit }}
-        {{ form.reset }}
     </form>
     <div id="answers">
     <!-- This div is where the different questions/answers will be added, and are lost when the page is refreshed or closed. -->
