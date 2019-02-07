@@ -1,10 +1,17 @@
 {% extends "base.html" %}
 
+{% block title %}
+<div id="logotitle">
+    <img src="{{ url_for('static', filename='pictures/old-man.png') }}" alt="logo de Grandpy" title="icône de Webalys, sur iconfounder.com"/>
+    <h1>Le site de Grandpy !</h1>
+</div>
+{% endblock %}
+
+
 {% block header %}
 <header class="introduction">
-    <h1><img src="{{ url_for('static', filename='pictures/old-man.png') }}" alt="logo de Grandpy" title="icône de Webalys, sur iconfounder.com"/>Le site de Grandpy !</h1>
     Bienvenue sur mon site ! Je suis Grandpy, le papy encyclopédie ! </br>
-    Indiquez-moi un lieu, et je vous raconterai son histoire ou celle d'un monument proche...
+    Indique-moi un lieu, et je te raconterai son histoire ou celle d'un monument proche...
 </header>
 {% endblock %}
 
@@ -15,7 +22,7 @@
     <form id="form" method="POST" action="">
         <!-- The user asks his question into this form. He can validate his input ("Et zou !" = submit) or erase it all("Oups..." = reset). -->
         {{ form.hidden_tag() }}
-        {{ form.gp_question(size=150, placeholder="Je rédige ici ma question pour Grandpy...") }}
+        {{ form.gp_question(size=100, placeholder="Je rédige ici ma question pour Grandpy...") }}
         {{ form.submit }}
     </form>
     <div id="answers">
