@@ -19,6 +19,10 @@
 <main>
     <!-- A little welcoming sentence to greet the visitor. -->
     <div id="catching_phrase">Hé peuchère, mon petit ! Que veux-tu savoir aujourd'hui ?</div>
+    <!-- The div below replaces the form when the app is searching for an answer. -->
+    <p id='loading_icon'>
+        Minute papillon ! Je réfléchis... <img src="{{ url_for('static', filename='pictures/loader.gif') }}" alt="logo d'attente" title="gif créé sur www.ajaxload.info"/>
+    </p>
     <form id="form" method="POST" action="">
         <!-- The user asks his question into this form. He can validate his input ("Et zou !" = submit) or erase it all("Oups..." = reset). -->
         {{ form.hidden_tag() }}

@@ -1,15 +1,18 @@
 
 var questionAnswerElt = document.getElementById("answers");
 questionAnswerElt.style.display = "None";
+var loadingIconElt = document.getElementById("loading_icon");
+loadingIconElt.style.display = "None";
 
 // Grandpy's answer and map appear when form is submitted.
 var formElt = document.getElementById("form");
-formElt.addEventListener("submit", function() {
+formElt.addEventListener("submit", function(e) {
     e.preventDefault();
     var questionElt = document.querySelector("#question_asked");
     question = {
         question : questionElt.value
     };
+
     ajaxPost("/answer", question, function(reponse) {
         var answersElt = document.getElementById("answers");
         // Creating a list of couples of questions and answers
@@ -78,5 +81,10 @@ formElt.addEventListener("submit", function() {
     },
     true
     );
+    // Replacing the form by a loading logo for 3 seconds:
+    setTimeout(function() {
+        var divFormElt = document.querySelector("form");
+        divFormElt.replaceChild(formElt, loadingIconElt);    
+    }, 3000);
 }); 
 
