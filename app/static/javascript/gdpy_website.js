@@ -8,7 +8,7 @@ loadingIconElt.style.display = "None";
 var formElt = document.getElementById("form");
 formElt.addEventListener("submit", function(e) {
     e.preventDefault();
-    var questionElt = document.querySelector("#question_asked");
+    var questionElt = document.querySelector("#gp_question");
     question = {
         question : questionElt.value
     };
