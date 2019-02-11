@@ -84,7 +84,9 @@ formElt.addEventListener("submit", function(e) {
     // Replacing the form by a loading logo for 3 seconds:
     setTimeout(function() {
         var divFormElt = document.querySelector("form");
-        divFormElt.replaceChild(formElt, loadingIconElt);    
+        divFormElt.style.display = "None";
+        loadingIconElt.style.display = "block";    
     }, 3000);
+    questionAnswerElt.style.display = "block";
 }); 
 
