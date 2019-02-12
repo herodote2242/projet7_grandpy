@@ -52,10 +52,10 @@ class GrandpyApplication:
         followed by the summary of the wikipedia's article.
         """
         if self.summary:
-            self.speech = random.choice(grandpy.answers.POSITIVE_ANSWER, 1)
+            self.speech = random.choice(grandpy.answers.POSITIVE_ANSWER)
         # If there is no available answer, Grandpy gives a negative answer.
         else:
-            self.speech = random.choice(grandpy.answers.NEGATIVE_ANSWER, 1)
+            self.speech = random.choice(grandpy.answers.NEGATIVE_ANSWER)
         return self.speech
 
     def get_answer(self):

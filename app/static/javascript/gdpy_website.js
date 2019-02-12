@@ -4,9 +4,9 @@ questionAnswerElt.style.display = "None";
 
 // Grandpy's answer and map appear when form is submitted.
 var formElt = document.getElementById("form");
-formElt.addEventListener("submit", function() {
+formElt.addEventListener("submit", function(e) {
     e.preventDefault();
-    var questionElt = document.querySelector("#question_asked");
+    var questionElt = document.querySelector("#gp_question");
     question = {
         question : questionElt.value
     };

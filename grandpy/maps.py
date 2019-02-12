@@ -23,8 +23,12 @@ class GoogleClient:
         This function gets the result of the module sentence_manipulator.py
         and send it to the Google maps' API.
         """
+        # -tc- si l'utilisateur tape n'importe quoi, place_to_find est une liste
+        # -tc- vide
         place_to_find = self.gmaps.geocode(address)
         # To find the exact address of the location :
+        # -tc- tester si place_to_find contient un élément. Si place_to_find est vide, donner des 
+        # -tc- indiquant vide à exact_address, latitude et longitude ou retourner une indication d'erreur.
         exact_address = place_to_find[0]['formatted_address']
         # To find the gps coordinates :
         latitude = place_to_find[0]['geometry']['location']['lat']
