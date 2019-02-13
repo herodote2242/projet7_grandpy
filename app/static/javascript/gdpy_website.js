@@ -1,10 +1,80 @@
-
+// Html elements are stored and concealed.
 var questionAnswerElt = document.getElementById("answers");
 questionAnswerElt.style.display = "None";
 var loadingIconElt = document.getElementById("loading_icon");
 loadingIconElt.style.display = "None";
 
-// Grandpy's answer and map appear when form is submitted.
+// This function returns the question previously asked by the visitor.
+function returnQuestion(question) {
+    var questionElt = document.createElement("p");
+    var questionTextElt = document.createTextNode("Ta question : " + question);
+    questionElt.appendChild(questionTextElt);
+    questionElt.classList.add("question");
+    return questionElt;
+}
+
+// This function returns the speech produced by Grandpy to this question.
+function returnSpeech(speech) {
+    var speechElt = document.createElement("p");
+    var speechTextElt = document.createTextNode("Ma réponse : " + speech);
+    speechElt.appendChild(speechTextElt);
+    speechElt.classList.add("speech");
+    return speechElt;
+}
+
+/* This function creates a map and its marker, according to the GPS coordinates
+of the location found by the program.*/
+function createMap(coordinates) {
+    var mapElt = document.createElement("div");
+    mapElt.classList.add("map");
+    var myLatLng = {lat: coordinates[1], lng: coordinates[2]};
+    var map = new google.maps.Map(mapElt, {
+        zoom: 4,
+        center: myLatLng
+    });
+    var marker = new google.maps.Marker({
+      position: myLatLng,
+      map: map
+    });
+    return mapElt;
+}
+
+// This function returns the summary found by Grandpy on the wikipedia' website.
+function returnSummary(summary, url) {
+    var summaryElt = document.createElement("p");
+    summaryElt.classList.add("summary");
+    summaryElt.innerHTML = summary + " ";
+    var linkElt = document.createElement("a");
+    linkElt.href = url;
+    var knowMoreElt = document.createTextNode("En savoir plus : ");
+    linkElt.appendChild(knowMoreElt);
+    summaryElt.appendChild(linkElt);
+    return summaryElt;
+}
+
+// This function returns all the previous elements as a global answer.
+function addAnswer(question, answer) {
+    // Elements of the general answer are created :
+    var questionElt = returnQuestion(question);
+    var speechElt = returnSpeech(answer.speech);
+    var summaryElt = returnSummary(answer.summary, answer.url);
+    var mapElt = createMap(answer.coords);
+
+    // And then, included in a div "answer".
+    var answerElt =document.createElement("div");
+    answerElt.classList.add("answer");
+    answerElt.appendChild(questionElt);
+    answerElt.appendChild(speechElt);
+    answerElt.appendChild(summaryElt);
+    answerElt.appendChild(mapElt);
+
+    /* Lastly, the answer is added to the div "answers", which car display
+    several different answers.*/
+    var answersElt = document.getElementById("answers");
+    answersElt.appendChild(answerElt);
+}
+
+// Grandpy's answer and map appear when the form is submitted.
 var formElt = document.getElementById("form");
 formElt.addEventListener("submit", function(e) {
     e.preventDefault();
@@ -12,72 +82,11 @@ formElt.addEventListener("submit", function(e) {
     question = {
         question : questionElt.value
     };
-
+    // The ajaxPost function uses all the previous functions.
     ajaxPost("/answer", question, function(reponse) {
-        var answersElt = document.getElementById("answers");
-        // Creating a list of couples of questions and answers
-        //var newQuestionAnswer = createQuestionAnswer(question);
         var question = questionElt.value;
-        // Creating a function to add to the list the new questions / answers
         var data = JSON.parse(reponse);
-        var coordinates = data.coords;
-        var url = data.url;
-        var summary = data.summary;
-        var speech = data.speech;
-        
-        // This function returns the question previously asked by the visitor.
-        function returnQuestion() {
-            var questionElt = document.createElement("p");
-            var questionTextElt = document.createTextNode(question);
-            questionElt.appendChild(questionTextElt);
-            return questionElt;
-        }
-
-        // This function returns the speech produced by Grandpy to this question.
-        function returnSpeech() {
-            var speechElt = document.createElement("p");
-            var speechTextElt = document.createTextNode(speech);
-            speechElt.appendChild(speechTextElt);
-            return speechElt;
-        }
-
-        /* This function create a map and its marker, according to the GPS coordinates
-        of the location found by the program.*/
-        function createMap() {
-            var mapElt = document.createElement("divmap");
-            var myLatLng = {lat: coordinates[0], lng: coordinates[1]};
-            var map = new google.maps.Map(mapElt, {
-                zoom: 4,
-                center: myLatLng
-            });
-            var marker = new google.maps.Marker({
-              position: myLatLng,
-              map: map
-            });
-            return map, marker;
-        }
-
-        // This function returns the summary found by Grandpy on the wikipedia' website.
-        function returnSummary() {
-            var summaryElt = document.createElement("p");
-            var summaryTextElt = document.createTextNode(summary);
-            summaryElt.appendChild(summaryTextElt);
-            return summaryElt;
-        }
-
-        // This function returns all the previous elements as a global answer.
-        function returnGlobalAnswer() {
-            returnQuestion();
-            returnSpeech();
-            returnSummary();
-            createMap();
-            var knowMoreElt = document.createElement("p");
-            var knowMoreTextElement = document.createTextNode();
-            knowMoreElt.appendChild(knowMoreTextElement);
-            var linkWikiElt = document.createElement("a");
-            linkWikiElt.href = url;
-            linkWikiElt.appendChild(document.createTextNode("En savoir plus."));
-        }
+        addAnswer(question, data);
     },
     true
     );

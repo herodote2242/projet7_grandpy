@@ -20,7 +20,7 @@ POSITIVE_ANSWER = [
     "Mmhh, la dernière fois que j'y suis passé, j'avais ton âge.",
     "Si je ne dis pas de bêtises, il me semble que...",
     "C'est pas tout récent, ce que tu me demandes. Voyons voir...",
-    "Ca me rappelle un souvenir de quand j'étais petit. Ma maman s'y rendait",
+    "Ca me rappelle un souvenir de quand j'étais petit. Ma maman s'y rendait.",
     "Je crois que je me rappelle comment ça s'est construit. Au départ, ..."
 ]
 
