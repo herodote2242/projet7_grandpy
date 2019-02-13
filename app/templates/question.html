@@ -23,7 +23,7 @@
     <p id='loading_icon'>
         Minute papillon ! Je réfléchis... <img src="{{ url_for('static', filename='pictures/loader.gif') }}" alt="logo d'attente" title="gif créé sur www.ajaxload.info"/>
     </p>
-    <form id="form" method="POST" action="">
+    <form id="form" method="POST">
         <!-- The user asks his question into this form. He can validate his input ("Et zou !" = submit) or erase it all("Oups..." = reset). -->
         {{ form.hidden_tag() }}
         {{ form.gp_question(size=100, placeholder="Je rédige ici ma question pour Grandpy...") }}

@@ -24,11 +24,18 @@ class GoogleClient:
         and send it to the Google maps' API.
         """
         place_to_find = self.gmaps.geocode(address)
-        # To find the exact address of the location :
-        exact_address = place_to_find[0]['formatted_address']
-        # To find the gps coordinates :
-        latitude = place_to_find[0]['geometry']['location']['lat']
-        longitude = place_to_find[0]['geometry']['location']['lng']
+        # Check if place_to_find isn't empty:
+        if place_to_find != []:
+            # To find the exact address of the location :
+            exact_address = place_to_find[0]['formatted_address']
+            # To find the gps coordinates :
+            latitude = place_to_find[0]['geometry']['location']['lat']
+            longitude = place_to_find[0]['geometry']['location']['lng']
+        # If place_to_find is empty, return empty answer.
+        else:
+            exact_address = ""
+            latitude = None
+            longitude = None
         # To avoid XSS attacks, using html.escape() function :
         return html.escape(exact_address), latitude, longitude
 

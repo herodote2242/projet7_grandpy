@@ -23,7 +23,7 @@
         {% block footer %}
         {% endblock %}        
       <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ key }}"></script>
-      <script src="../static/javascript/gdpy_website.js"></script>
-      <script src="../static/javascript/ajax.js"></script>
+      <script src="{{ url_for('static', filename='javascript/ajax.js') }}"></script>
+      <script src="{{ url_for('static', filename='javascript/gdpy_website.js') }}"></script>
     </body>
 </html>

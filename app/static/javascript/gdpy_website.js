@@ -16,7 +16,7 @@ formElt.addEventListener("submit", function(e) {
     ajaxPost("/answer", question, function(reponse) {
         var answersElt = document.getElementById("answers");
         // Creating a list of couples of questions and answers
-        var newQuestionAnswer = createQuestionAnswer(question);
+        //var newQuestionAnswer = createQuestionAnswer(question);
         var question = questionElt.value;
         // Creating a function to add to the list the new questions / answers
         var data = JSON.parse(reponse);
@@ -82,10 +82,12 @@ formElt.addEventListener("submit", function(e) {
     true
     );
     // Replacing the form by a loading logo for 3 seconds:
+    var divFormElt = document.querySelector("form");
+    divFormElt.style.display = "None";
+    loadingIconElt.style.display = "block";
     setTimeout(function() {
-        var divFormElt = document.querySelector("form");
-        divFormElt.style.display = "None";
-        loadingIconElt.style.display = "block";    
+        divFormElt.style.display = "block";
+        loadingIconElt.style.display = "none";    
     }, 3000);
     questionAnswerElt.style.display = "block";
 }); 
