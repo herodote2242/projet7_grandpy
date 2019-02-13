@@ -30,6 +30,7 @@ formElt.addEventListener("submit", function(e) {
             var questionElt = document.createElement("p");
             var questionTextElt = document.createTextNode(question);
             questionElt.appendChild(questionTextElt);
+            questionElt.classList.add("question");
             return questionElt;
         }
 
@@ -38,14 +39,16 @@ formElt.addEventListener("submit", function(e) {
             var speechElt = document.createElement("p");
             var speechTextElt = document.createTextNode(speech);
             speechElt.appendChild(speechTextElt);
+            speechElt.classList.add("speech");
             return speechElt;
         }
 
         /* This function create a map and its marker, according to the GPS coordinates
         of the location found by the program.*/
         function createMap() {
-            var mapElt = document.createElement("divmap");
-            var myLatLng = {lat: coordinates[0], lng: coordinates[1]};
+            var mapElt = document.createElement("div");
+            mapElt.classList.add("map");
+            var myLatLng = {lat: coordinates[1], lng: coordinates[2]};
             var map = new google.maps.Map(mapElt, {
                 zoom: 4,
                 center: myLatLng
@@ -54,30 +57,42 @@ formElt.addEventListener("submit", function(e) {
               position: myLatLng,
               map: map
             });
-            return map, marker;
+            return mapElt;
         }
 
         // This function returns the summary found by Grandpy on the wikipedia' website.
         function returnSummary() {
             var summaryElt = document.createElement("p");
-            var summaryTextElt = document.createTextNode(summary);
-            summaryElt.appendChild(summaryTextElt);
+            summaryElt.classList.add("summary");
+            //var summaryTextElt = document.createTextNode(summary + " ");
+            //summaryElt.appendChild(summaryTextElt);
+            summaryElt.innerHTML = summary + " "
+            var linkElt = document.createElement("a");
+            linkElt.href = url;
+            var knowMoreElt = document.createTextNode("En savoir plus")
+            linkElt.appendChild(knowMoreElt)
+            summaryElt.appendChild(linkElt)
             return summaryElt;
         }
 
         // This function returns all the previous elements as a global answer.
-        function returnGlobalAnswer() {
-            returnQuestion();
-            returnSpeech();
-            returnSummary();
-            createMap();
-            var knowMoreElt = document.createElement("p");
-            var knowMoreTextElement = document.createTextNode();
-            knowMoreElt.appendChild(knowMoreTextElement);
-            var linkWikiElt = document.createElement("a");
-            linkWikiElt.href = url;
-            linkWikiElt.appendChild(document.createTextNode("En savoir plus."));
+        function addAnswer() {
+            var questionElt = returnQuestion();
+            var speechElt = returnSpeech();
+            var summaryElt = returnSummary();
+            var mapElt = createMap();
+
+            var answerElt = document.createElement("div");
+            answerElt.classList.add("answer");
+            answerElt.appendChild(questionElt);
+            answerElt.appendChild(speechElt);
+            answerElt.appendChild(summaryElt);
+            answerElt.appendChild(mapElt);
+
+            answersElt.appendChild(answerElt);
         }
+
+        addAnswer();
     },
     true
     );
