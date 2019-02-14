@@ -31,7 +31,7 @@ function createMap(coordinates) {
     mapElt.classList.add("map");
     var myLatLng = {lat: coordinates[1], lng: coordinates[2]};
     var map = new google.maps.Map(mapElt, {
-        zoom: 4,
+        zoom: 12,
         center: myLatLng
     });
     var marker = new google.maps.Marker({

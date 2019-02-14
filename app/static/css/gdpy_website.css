@@ -1,4 +1,4 @@
-header, #catching_phrase, #answers
+header, #catching_phrase
 {
     text-align: center;
     color: white;
@@ -11,6 +11,7 @@ body
 {
     background: url("../pictures/two_old_men.jpg") scroll no-repeat top;
     background-size: cover;
+    background-attachment: fixed;
 }
 
 footer
@@ -30,7 +31,7 @@ footer
     opacity: 0.7;
 }
 
-h1, p, body, footer, header, #form, #answers, #catching_phrase
+h1, p, body, footer, header, #form, #catching_phrase
 {
     padding-top: 10px;
     padding-bottom: 10px;
@@ -78,4 +79,51 @@ header, #catching_phrase, #form
     font-size: 120%;
     margin: auto;
     margin-top: 50px;
+}
+
+.map
+{
+    height: 40%;
+    max-height: 600px;
+    width: 60%;
+    max-width: 800px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.speech
+{
+    margin-left: 60px;
+    margin-right: 60px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    text-align: justify;
+}
+
+.summary
+{
+    margin-left: 60px;
+    margin-right: 60px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    text-align: justify;
+}
+
+.question
+{
+    text-align: left;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.answer
+{
+    text-align: center;
+    color: white;
+    background-color: black;
+    opacity: 0.9;
+    width: 60%;
+    border: 3px white solid;
 }
