@@ -13,7 +13,8 @@ function returnQuestion(question) {
     return questionElt;
 }
 
-// This function returns the speech produced by Grandpy to this question.
+/* This function returns the speech produced by Grandpy to this question : one of the different
+pre-existing answers (randomly chosen), and the exact address of the location found.*/
 function returnSpeech(speech, coordinates) {
     var speechElt = document.createElement("p");
     var addressElt = document.createTextNode(" Pour commencer, voici l'adresse : " + coordinates[0]);
@@ -70,8 +71,8 @@ function addAnswer(question, answer) {
     answerElt.appendChild(summaryElt);
     answerElt.appendChild(mapElt);
 
-    /* Lastly, the answer is added to the div "answers", which goal is to
-    store all the questions and answers (until the page is
+    /* Lastly, the div "answer" is added to the div "answers", which goal is to
+    contain all the questions and answers (until the page is
     refreshed or closed)*/
     var answersElt = document.getElementById("answers");
     answersElt.appendChild(answerElt);
@@ -103,4 +104,3 @@ formElt.addEventListener("submit", function(e) {
     }, 3000);
     questionAnswerElt.style.display = "block";
 }); 
-
