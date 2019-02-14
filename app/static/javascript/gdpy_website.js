@@ -7,17 +7,19 @@ loadingIconElt.style.display = "None";
 // This function returns the question previously asked by the visitor.
 function returnQuestion(question) {
     var questionElt = document.createElement("p");
-    var questionTextElt = document.createTextNode("Ta question : " + question);
+    var questionTextElt = document.createTextNode("J'ai bien ententu, tu as demandé : " + question);
     questionElt.appendChild(questionTextElt);
     questionElt.classList.add("question");
     return questionElt;
 }
 
 // This function returns the speech produced by Grandpy to this question.
-function returnSpeech(speech) {
+function returnSpeech(speech, exact_address) {
     var speechElt = document.createElement("p");
-    var speechTextElt = document.createTextNode("Ma réponse : " + speech);
+    var addressElt = document.createTextNode(" Pour commencer, voici l'adresse : " + exact_address);
+    var speechTextElt = document.createTextNode("Et bien voilà ce que je peux te dire. " + speech);
     speechElt.appendChild(speechTextElt);
+    speechElt.appendChild(addressElt)
     speechElt.classList.add("speech");
     return speechElt;
 }
@@ -46,7 +48,7 @@ function returnSummary(summary, url) {
     summaryElt.innerHTML = summary + " ";
     var linkElt = document.createElement("a");
     linkElt.href = url;
-    var knowMoreElt = document.createTextNode("En savoir plus : ");
+    var knowMoreElt = document.createTextNode("En savoir plus. ");
     linkElt.appendChild(knowMoreElt);
     summaryElt.appendChild(linkElt);
     return summaryElt;
@@ -56,7 +58,7 @@ function returnSummary(summary, url) {
 function addAnswer(question, answer) {
     // Elements of the general answer are created :
     var questionElt = returnQuestion(question);
-    var speechElt = returnSpeech(answer.speech);
+    var speechElt = returnSpeech(answer.speech, answer.exact_address);
     var summaryElt = returnSummary(answer.summary, answer.url);
     var mapElt = createMap(answer.coords);
 
@@ -68,8 +70,9 @@ function addAnswer(question, answer) {
     answerElt.appendChild(summaryElt);
     answerElt.appendChild(mapElt);
 
-    /* Lastly, the answer is added to the div "answers", which car display
-    several different answers.*/
+    /* Lastly, the answer is added to the div "answers", which goal is to
+    store all the questions and answers (until the page is
+    refreshed or closed)*/
     var answersElt = document.getElementById("answers");
     answersElt.appendChild(answerElt);
 }

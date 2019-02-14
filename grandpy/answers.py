@@ -9,7 +9,7 @@ POSITIVE_ANSWER = [
     "Figure-toi, mon petit, que j'y allais souvent quand j'avais ton âge !",
     "Ha ha ! Ca me rappelle une drôle d'histoire. Ecoute : ...",
     "Et bien, il s'en est passé des choses dans le coin. Ecoute un peu ça :",
-    "La prochaine fois que tu y passes, penses à ce que je vais te raconter.",
+    "La prochaine fois que tu y passes, pense à ce que je vais te raconter.",
     "Quand j'étais petit, cet endroit ne ressemblait pas à ça !",
     "Les choses ont bien changé avec leurs travaux ! C'était mieux avant !",
     "Dans le temps, mon copain Marcel avait un oncle qui y travaillait.",
