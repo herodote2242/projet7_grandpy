@@ -14,9 +14,9 @@ function returnQuestion(question) {
 }
 
 // This function returns the speech produced by Grandpy to this question.
-function returnSpeech(speech, exact_address) {
+function returnSpeech(speech, coordinates) {
     var speechElt = document.createElement("p");
-    var addressElt = document.createTextNode(" Pour commencer, voici l'adresse : " + exact_address);
+    var addressElt = document.createTextNode(" Pour commencer, voici l'adresse : " + coordinates[0]);
     var speechTextElt = document.createTextNode("Et bien voilà ce que je peux te dire. " + speech);
     speechElt.appendChild(speechTextElt);
     speechElt.appendChild(addressElt)
@@ -31,7 +31,7 @@ function createMap(coordinates) {
     mapElt.classList.add("map");
     var myLatLng = {lat: coordinates[1], lng: coordinates[2]};
     var map = new google.maps.Map(mapElt, {
-        zoom: 12,
+        zoom: 14,
         center: myLatLng
     });
     var marker = new google.maps.Marker({
@@ -58,7 +58,7 @@ function returnSummary(summary, url) {
 function addAnswer(question, answer) {
     // Elements of the general answer are created :
     var questionElt = returnQuestion(question);
-    var speechElt = returnSpeech(answer.speech, answer.exact_address);
+    var speechElt = returnSpeech(answer.speech, answer.coords);
     var summaryElt = returnSummary(answer.summary, answer.url);
     var mapElt = createMap(answer.coords);
 

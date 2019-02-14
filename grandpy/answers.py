@@ -2,26 +2,26 @@
 # -*- coding: Utf-8 -*
 
 POSITIVE_ANSWER = [
-    "Ho, je vois très bien de quoi tu parles. Sais tu que...",
-    "J'ai habité juste à côté ! Dans le temps, ...",
+    "Ho, je vois très bien de quoi tu parles.",
+    "J'ai habité juste à côté, dans le temps !",
     "Laisse moi te dire qu'à l'époque, c'était autre chose...",
     "Comme j'ai un peu de temps, je vais t'en toucher quelques mots...",
     "Figure-toi, mon petit, que j'y allais souvent quand j'avais ton âge !",
-    "Ha ha ! Ca me rappelle une drôle d'histoire. Ecoute...",
+    "Ha ha ! Ca me rappelle une drôle d'histoire. Ecoute un peu.",
     "Et bien, il s'en est passé des choses dans le coin. Ecoute un peu ça.",
     "La prochaine fois que tu y passes, pense à ce que je vais te raconter.",
     "Quand j'étais petit, cet endroit ne ressemblait pas à ça !",
     "Les choses ont bien changé avec leurs travaux ! C'était mieux avant !",
     "Dans le temps, mon copain Marcel avait un oncle qui y travaillait.",
     "La soeur de ta grand-mère habitait dans le quartier, elle savait tout.",
-    "Ha, ça remonte avant la guerre. En ce temps-là, ...",
+    "Ha, ça remonte avant la guerre. Ca ne me rajeunit pas !",
     "C'est un vieux bâtiment qui a traversé les âges. Comme moi !",
     "Il s'est passé de drôles d'anecdotes en ce lieu. Je te les raconte ?",
     "Mmhh, la dernière fois que j'y suis passé, j'avais ton âge.",
     "Si je ne dis pas de bêtises, il me semble que...",
     "C'est pas tout récent, ce que tu me demandes. Voyons voir...",
     "Ca me rappelle un souvenir de quand j'étais petit. Ma maman s'y rendait.",
-    "Je crois que je me rappelle comment ça s'est construit. Au départ, ..."
+    "Je crois que je me rappelle comment ça s'est construit."
 ]
 
 NEGATIVE_ANSWER = [
