@@ -25,6 +25,11 @@ footer
     opacity: 0.6;
 }
 
+input[type=text]
+{
+    width: 80%;
+}
+
 #form
 {
     text-align: center;
@@ -67,6 +72,13 @@ header, #catching_phrase, #form
 {
     display: flex;
     flex-wrap: wrap;
+}
+
+@media (max-width: 600px)
+{
+    #logotitle {
+        display: none;
+    }
 }
 
 #loading_icon
@@ -127,6 +139,13 @@ header, #catching_phrase, #form
     opacity: 0.9;
     width: 60%;
     border: 3px white solid;
+}
+
+@media (max-width: 600px)
+{
+    .answer {
+        width: 100%;
+    }
 }
 
 #answers

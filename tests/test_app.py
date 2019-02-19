@@ -19,7 +19,7 @@ class TestGrandpyApp:
         Lyon depuis le sommet de la colline de Fourvière depuis la fin du\
         XIXe siècle."
         coordinates = ('8 Place de Fourvière, 69005 Lyon, France',
-            45.7622928, 4.822626)
+                       45.7622928, 4.822626)
         catch_result = "Ha ! Mon petit, je suis content de te voir !"
         positive_result = "Ho, je vois très bien de quoi tu parles..."
         total_answer = {
@@ -33,6 +33,6 @@ class TestGrandpyApp:
             self.summary = summary
 
         monkeypatch.setattr("grandpy.app.GrandpyApplication.__init__",
-            mock_init)
+                            mock_init)
         appli = grandpy.app.GrandpyApplication()
         assert appli.get_answer() == total_answer

@@ -17,10 +17,12 @@ function returnQuestion(question) {
 pre-existing answers (randomly chosen), and the exact address of the location found.*/
 function returnSpeech(speech, coordinates) {
     var speechElt = document.createElement("p");
-    var addressElt = document.createTextNode(" Pour commencer, voici l'adresse : " + coordinates[0]);
     var speechTextElt = document.createTextNode("Et bien voilà ce que je peux te dire. " + speech);
     speechElt.appendChild(speechTextElt);
-    speechElt.appendChild(addressElt)
+    if (coordinates[1] && coordinates[2]) {
+        var addressElt = document.createTextNode(" Pour commencer, voici l'adresse : " + coordinates[0]);
+        speechElt.appendChild(addressElt)
+    }
     speechElt.classList.add("speech");
     return speechElt;
 }
@@ -60,16 +62,19 @@ function addAnswer(question, answer) {
     // Elements of the general answer are created :
     var questionElt = returnQuestion(question);
     var speechElt = returnSpeech(answer.speech, answer.coords);
-    var summaryElt = returnSummary(answer.summary, answer.url);
-    var mapElt = createMap(answer.coords);
+
 
     // And then, included in a div "answer".
     var answerElt =document.createElement("div");
     answerElt.classList.add("answer");
     answerElt.appendChild(questionElt);
     answerElt.appendChild(speechElt);
-    answerElt.appendChild(summaryElt);
-    answerElt.appendChild(mapElt);
+    if (answer.coords[1] && answer.coords[2]) {
+        var summaryElt = returnSummary(answer.summary, answer.url);
+        var mapElt = createMap(answer.coords);
+        answerElt.appendChild(summaryElt);
+        answerElt.appendChild(mapElt);    
+    }
 
     /* Lastly, the div "answer" is added to the div "answers", which goal is to
     contain all the questions and answers (until the page is

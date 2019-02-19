@@ -24,6 +24,8 @@ class WikiClient:
         and send it to the Wikipedia's API.
         """
         formatted_address, latitude, longitude = geodata
+        if latitude is None and longitude is None:
+            return "", ""
         """
         geosearch(latitude='x.x', longitude='x.x') returns a list of
         different places/monuments within the radius (in meters).
