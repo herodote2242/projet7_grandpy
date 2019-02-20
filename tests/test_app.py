@@ -20,19 +20,27 @@ class TestGrandpyApp:
         XIXe siècle."
         coordinates = ('8 Place de Fourvière, 69005 Lyon, France',
                        45.7622928, 4.822626)
-        catch_result = "Ha ! Mon petit, je suis content de te voir !"
         positive_result = "Ho, je vois très bien de quoi tu parles..."
+        url = "https://wikipedia.fr"
         total_answer = {
-            'speech': (catch_result, positive_result),
+            'speech': positive_result,
             'summary': summary,
-            'coords': coordinates}
+            'coords': coordinates,
+            'url': url}
 
         def mock_init(self, question=None):
-            self.speech = catch_result, positive_result
+            self.speech = positive_result
             self.coordinates = coordinates
             self.summary = summary
+            self.url = url
+
+        def mock_get_grandpy_speech(self):
+            return positive_result
 
         monkeypatch.setattr("grandpy.app.GrandpyApplication.__init__",
                             mock_init)
+        monkeypatch.setattr(
+            "grandpy.app.GrandpyApplication.get_grandpy_speech",
+            mock_get_grandpy_speech)
         appli = grandpy.app.GrandpyApplication()
         assert appli.get_answer() == total_answer

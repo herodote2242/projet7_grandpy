@@ -20,7 +20,7 @@ class TestGoogleClient:
             }
         }]
         result = ('8 Place de Fourvière, 69005 Lyon, France',
-            45.7622928, 4.822626)
+                  45.7622928, 4.822626)
 
         def mock_init(self, key):
             pass
