@@ -7,28 +7,34 @@ loadingIconElt.style.display = "None";
 // This function returns the question previously asked by the visitor.
 function returnQuestion(question) {
     var questionElt = document.createElement("p");
-    var questionTextElt = document.createTextNode("J'ai bien ententu, tu as demandé : " + question);
+    var questionTextElt = document.createTextNode(
+        "J'ai bien ententu, tu as demandé : " + question);
     questionElt.appendChild(questionTextElt);
     questionElt.classList.add("question");
     return questionElt;
 }
 
-/* This function returns the speech produced by Grandpy to this question : one of the different
-pre-existing answers (randomly chosen), and the exact address of the location found.*/
+/* This function returns the speech produced by Grandpy to this question :
+ one of the different pre-existing answers (randomly chosen), and the exact
+ address of the location found.*/
 function returnSpeech(speech, coordinates) {
     var speechElt = document.createElement("p");
-    var speechTextElt = document.createTextNode("Et bien voilà ce que je peux te dire. " + speech);
+    var speechTextElt = document.createTextNode(
+        "Et bien voilà ce que je peux te dire. " + speech);
     speechElt.appendChild(speechTextElt);
+    /* The condition below checks if Grandpy obtained a positive answer. We
+    don't want to display some empty elements. */
     if (coordinates[1] && coordinates[2]) {
-        var addressElt = document.createTextNode(" Pour commencer, voici l'adresse : " + coordinates[0]);
+        var addressElt = document.createTextNode(
+            " Pour commencer, voici l'adresse : " + coordinates[0]);
         speechElt.appendChild(addressElt)
     }
     speechElt.classList.add("speech");
     return speechElt;
 }
 
-/* This function creates a map and its marker, according to the GPS coordinates
-of the location found by the program.*/
+/* This function creates a map and its marker, according to the GPS
+coordinates of the location found by the program.*/
 function createMap(coordinates) {
     var mapElt = document.createElement("div");
     mapElt.classList.add("map");
@@ -44,7 +50,8 @@ function createMap(coordinates) {
     return mapElt;
 }
 
-// This function returns the summary found by Grandpy on the wikipedia' website.
+/* This function returns the summary found by Grandpy on the wikipedia's
+website.*/
 function returnSummary(summary, url) {
     var summaryElt = document.createElement("p");
     summaryElt.classList.add("summary");
@@ -63,7 +70,6 @@ function addAnswer(question, answer) {
     var questionElt = returnQuestion(question);
     var speechElt = returnSpeech(answer.speech, answer.coords);
 
-
     // And then, included in a div "answer".
     var answerElt =document.createElement("div");
     answerElt.classList.add("answer");
@@ -76,11 +82,11 @@ function addAnswer(question, answer) {
         answerElt.appendChild(mapElt);    
     }
 
-    /* Lastly, the div "answer" is added to the div "answers", which goal is to
-    contain all the questions and answers (until the page is
+    /* Lastly, the div "answer" is added to the div "answers", which goal is
+    to contain all the questions and answers (until the page is
     refreshed or closed)*/
     var answersElt = document.getElementById("answers");
-    answersElt.appendChild(answerElt);
+    answersElt.insertBefore(answerElt, answersElt.firstChild);
 }
 
 // Grandpy's answer and map appear when the form is submitted.
@@ -91,6 +97,7 @@ formElt.addEventListener("submit", function(e) {
     question = {
         question : questionElt.value
     };
+
     // The ajaxPost function uses all the previous functions.
     ajaxPost("/answer", question, function(reponse) {
         var question = questionElt.value;
@@ -99,6 +106,7 @@ formElt.addEventListener("submit", function(e) {
     },
     true
     );
+
     // Replacing the form by a loading logo for 3 seconds:
     var divFormElt = document.querySelector("form");
     divFormElt.style.display = "None";
