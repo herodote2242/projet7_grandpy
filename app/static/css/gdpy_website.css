@@ -25,6 +25,13 @@ footer
     opacity: 0.6;
 }
 
+@media (max-width: 600px)
+{
+    footer {
+        width: 100%;
+    }
+}
+
 input[type=text]
 {
     width: 80%;
