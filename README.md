@@ -12,12 +12,12 @@ You have two ways for using the created website :
 - The slow way. 
     1) You have to fork the repository and clone it with git.
     Or you can download the full project here at github.
-    2) Activate a virtual environment.
-    3) Install Flask in your environment and run it to activate a virtual server.
-    4) In your internet browser, go to this adress : localhost/5000. You have now access to the website via your own local server.
-    5) Have a look at the exemple.env.txt. It's an example of what you have to declare as environment variables to make the magic happen. API keys are mine, so if you want to use the application on your own local device, you have to use Google Cloud Plateform to obtain API keys instead of mine.
+    2) Install the dependencies in your environment using 'pipenv install' and run it using 'pipenv run flask run' to activate a virtual server.
+    3) In your internet browser, go to this adress : localhost/5000. You have now access to the website via your own local server.
+    4) Have a look at the exemple.env.txt. It's an example of what you have to declare as environment variables to make the magic happen. API keys are mine, so if you want to use the application on your own local device, you have to use Google Cloud Plateform to obtain API keys instead of mine.
 
 Be carefull : the API key is under restriction. Which means the local server solution might not be able to generate expected results if you ask a question to Grandpy.
+Be carefull again : the local environment variables present in the .env file have to be present in the Heroku variables' environment. Otherwise, you'll get an error 500 when opening the website.
 
 Have fun !
 
