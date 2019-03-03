@@ -108,8 +108,10 @@ header, #catching_phrase, #form
 
 .map
 {
-    height: 300px;
-    width: 400px;
+    height: 40%;
+    min-height: 300px;
+    width: 60%;
+    min-width: 400px;
     margin-left: 10px;
     margin-bottom: 10px;
 }
